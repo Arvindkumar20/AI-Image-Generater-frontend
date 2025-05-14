@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-export default function Form({setImageUrl}) {
+export default function Form({ setImageUrl, setLoading }) {
   const [loaded, setLoaded] = useState(false);
 
   const [data, setData] = useState({
@@ -13,6 +13,7 @@ export default function Form({setImageUrl}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log(data);
     generateImage();
     setLoaded(true);
@@ -75,7 +76,6 @@ export default function Form({setImageUrl}) {
             >
               Generate Image
             </button>
-           
           </div>
         </form>
       </div>
